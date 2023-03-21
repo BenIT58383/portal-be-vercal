@@ -32,8 +32,8 @@ exports.findAll = (req, res) => {
 		} else {
 			if(data && data.length && Array.isArray(data)){
 				for (let item of data) {
-					item.created_at = moment(item.created_at).format('YYYY-MM-DD HH:mm:ss')
-					item.updated_at = moment(item.updated_at).format('YYYY-MM-DD HH:mm:ss')
+					item.created_at = moment(item.created_at).add(7, "hour").format('YYYY-MM-DD HH:mm:ss')
+					item.updated_at = moment(item.updated_at).add(7, "hour").format('YYYY-MM-DD HH:mm:ss')
 				}
 				res.send(data)
 			}else if(data) {
@@ -59,8 +59,8 @@ exports.findOne = async (req, res) => {
 				});
 			}
 		} else {
-			data.created_at = moment(data.created_at).format('YYYY-MM-DD HH:mm:ss')
-			data.updated_at = moment(data.updated_at).format('YYYY-MM-DD HH:mm:ss')
+			data.created_at = moment(data.created_at).add(7, "hour").format('YYYY-MM-DD HH:mm:ss')
+			data.updated_at = moment(data.updated_at).add(7, "hour").format('YYYY-MM-DD HH:mm:ss')
 			res.send(data);
 		}
 	});
