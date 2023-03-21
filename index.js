@@ -4,6 +4,7 @@ const cors = require("cors");
 app.use(cors());
 const app = express();
 
+readdirSync("./routes").map((file)=>app.use("/",require("./routes/"+file)))
 
 // parse requests of content-type - application/json
 // app.use(express.json()); /* bodyParser.json() is deprecated */
